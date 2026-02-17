@@ -1,3 +1,5 @@
+package es290126;
+
 public class Scuola {
 
     private String nome;
