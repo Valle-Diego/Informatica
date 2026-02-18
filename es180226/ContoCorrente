@@ -1,0 +1,35 @@
+package es180226;
+
+class ContoCorrente {
+
+    // Attributi privati (Information Hiding)
+    private String intestatario;
+    private double saldo;
+
+    // Costruttore
+    public ContoCorrente(String intestatario, double saldoIniziale) {
+        this.intestatario = intestatario;
+        this.saldo = saldoIniziale;
+    }
+
+    // Metodo per depositare
+    public void deposita(double importo) {
+        if (importo > 0) {
+            saldo += importo;
+        }
+    }
+
+    // Metodo per prelevare
+    public boolean preleva(double importo) {
+        if (importo > 0 && importo <= saldo) {
+            saldo -= importo;
+            return true;
+        }
+        return false;
+    }
+
+    // Getter del saldo
+    public double getSaldo() {
+        return saldo;
+    }
+}

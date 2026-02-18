@@ -1,0 +1,44 @@
+package es180226;
+
+import java.util.*;
+
+public class BancaApp {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        ContoCorrente mioConto = new ContoCorrente("Mario Rossi", 1000.0);
+
+        try {
+
+            System.out.println("Saldo attuale: " + mioConto.getSaldo());
+            System.out.print("Inserisci l'importo da prelevare: ");
+
+            double importo = scanner.nextDouble();
+
+            if (mioConto.preleva(importo)) {
+                System.out.println("Prelievo effettuato.");
+            } else {
+                System.out.println("Operazione non valida (saldo insufficiente o importo errato).");
+            }
+
+            System.out.println("Saldo aggiornato: " + mioConto.getSaldo());
+
+        } catch (InputMismatchException e) {
+
+            System.err.println("Errore: devi inserire un numero valido!");
+
+        } catch (Exception e) {
+
+            System.err.println("Si è verificato un errore imprevisto.");
+
+        } finally {
+
+            scanner.close();
+            System.out.println("Sessione terminata.");
+
+        }
+    }
+}
+
+
